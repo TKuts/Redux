@@ -17,10 +17,13 @@ const filterSlice = createSlice({
       //   title: action.payload,
       // };
     },
+    resetFilteres: (state) => {
+      return initialState;
+    },
   },
 });
 
-export const { setTitleFilter } = filterSlice.actions;
+export const { setTitleFilter, resetFilteres } = filterSlice.actions;
 
 export const selectTitleFilter = (state) => state.filter.title;
 
