@@ -5,11 +5,15 @@ import {
   selectAuthorFilter,
   selectOnlyFavorit,
 } from "../../redux/slices/filterSlice";
-import { deletedBook, toggleFavorite } from "../../redux/books/actionCreators";
+import {
+  deleteBook,
+  toogleFavorite,
+  selectBooks,
+} from "../../redux/slices/booksSlice";
 import "./BookList.css";
 
 const BookList = () => {
-  const books = useSelector((state) => state.books);
+  const books = useSelector(selectBooks);
   const titleFilter = useSelector(selectTitleFilter);
   const authorFilter = useSelector(selectAuthorFilter);
   const onlyFavoriteFilter = useSelector(selectOnlyFavorit);
@@ -17,11 +21,11 @@ const BookList = () => {
   const dispatch = useDispatch();
 
   const handleDeleteBook = (id) => {
-    dispatch(deletedBook(id));
+    dispatch(deleteBook(id));
   };
 
   const handlToggleFavorite = (id) => {
-    dispatch(toggleFavorite(id));
+    dispatch(toogleFavorite(id));
   };
 
   const filteredBooks = books.filter((book) => {
