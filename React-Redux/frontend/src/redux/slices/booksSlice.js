@@ -48,9 +48,6 @@ const booksSlice = createSlice({
         state.push(createBookWithId(action.payload, "API"));
       }
     });
-    // builder.addCase(fetchBook.rejected, (state, action)=> {
-
-    // })
   },
 });
 
